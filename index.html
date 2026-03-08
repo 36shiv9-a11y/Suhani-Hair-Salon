@@ -7,109 +7,120 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        .hero-bg { background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1503951914875-452162b0f3f1?q=80&w=1200'); background-size: cover; }
+        .hero-bg { background: #000; border-bottom: 5px solid #f59e0b; }
         .fade-out { transition: opacity 1.5s; opacity: 0; }
         .booking-active { animation: pulse 2s infinite; }
         @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
+        input, select { min-height: 50px; background: white !important; color: black !important; }
     </style>
 </head>
-<body class="bg-slate-100 font-sans">
+<body class="bg-gray-100 font-sans">
 
-    <nav class="bg-black text-white p-5 text-center sticky top-0 z-50 border-b-4 border-amber-600 shadow-xl">
-        <h1 class="text-3xl font-black text-amber-500 italic uppercase">SUHANI HAIR SALON</h1>
-        <p class="text-[10px] text-gray-400 tracking-widest font-bold">Kolar Road, Bhopal | Established 2007</p>
-    </nav>
+    <header class="hero-bg text-white p-8 text-center shadow-2xl">
+        <h1 class="text-4xl font-black text-amber-500 italic uppercase tracking-tighter">SUHANI HAIR SALON</h1>
+        <p class="text-sm text-gray-400 mt-2 font-bold tracking-widest uppercase">Kolar Road, Bhopal | Since 2007</p>
+    </header>
 
-    <main class="max-w-6xl mx-auto py-8 px-4">
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
-            <div class="bg-white rounded-xl shadow overflow-hidden border-b-4 border-amber-500">
-                <img src="https://images.unsplash.com/photo-1599351431247-f10b21816381?q=80&w=400" class="w-full h-40 object-cover">
-                <p class="p-2 text-center font-bold text-sm uppercase">Hair Cutting</p>
+    <main class="max-w-6xl mx-auto py-10 px-4">
+        
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+            <div class="bg-white rounded-3xl shadow-xl overflow-hidden border-b-8 border-amber-500 transition hover:scale-105">
+                <img src="https://images.pexels.com/photos/1319460/pexels-photo-1319460.jpeg?auto=compress&cs=tinysrgb&w=600" class="w-full h-56 object-cover" alt="Hair Cut">
+                <div class="p-4 text-center font-black text-xl uppercase italic">Hair Cutting</div>
             </div>
-            <div class="bg-white rounded-xl shadow overflow-hidden border-b-4 border-slate-800">
-                <img src="https://images.unsplash.com/photo-1621605815841-28d9447ad2b1?q=80&w=400" class="w-full h-40 object-cover">
-                <p class="p-2 text-center font-bold text-sm uppercase">Beard Styling</p>
+            <div class="bg-white rounded-3xl shadow-xl overflow-hidden border-b-8 border-black transition hover:scale-105">
+                <img src="https://images.pexels.com/photos/1813272/pexels-photo-1813272.jpeg?auto=compress&cs=tinysrgb&w=600" class="w-full h-56 object-cover" alt="Beard">
+                <div class="p-4 text-center font-black text-xl uppercase italic">Beard Styling</div>
             </div>
-            <div class="bg-white rounded-xl shadow overflow-hidden border-b-4 border-amber-500">
-                <img src="https://images.unsplash.com/photo-1512496011212-72d20b307445?q=80&w=400" class="w-full h-40 object-cover">
-                <p class="p-2 text-center font-bold text-sm uppercase">Face Facial</p>
+            <div class="bg-white rounded-3xl shadow-xl overflow-hidden border-b-8 border-amber-500 transition hover:scale-105">
+                <img src="https://images.pexels.com/photos/3993444/pexels-photo-3993444.jpeg?auto=compress&cs=tinysrgb&w=600" class="w-full h-56 object-cover" alt="Facial">
+                <div class="p-4 text-center font-black text-xl uppercase italic">Face Facial</div>
             </div>
         </div>
 
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            <div class="bg-white p-6 rounded-3xl shadow-xl border border-blue-100">
-                <h3 class="text-2xl font-black mb-4 text-blue-800 uppercase italic">Waiting List</h3>
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-10">
+            
+            <div class="bg-white p-8 rounded-3xl shadow-2xl border border-blue-100">
+                <h3 class="text-3xl font-black mb-4 text-blue-900 uppercase italic">Live Waiting List</h3>
+                <p class="text-[10px] text-gray-500 mb-6 font-bold">*Auto-remove: 20 Minutes*</p>
                 <div class="overflow-x-auto">
                     <table class="w-full text-left text-sm">
-                        <tr class="bg-slate-100 font-bold text-[10px] uppercase tracking-tighter">
-                            <th class="p-3 border">Grahak</th>
-                            <th class="p-3 border">Samay</th>
-                            <th class="p-3 border">Status</th>
-                        </tr>
+                        <thead>
+                            <tr class="bg-gray-100 uppercase text-[10px] font-black">
+                                <th class="p-4 border">Grahak</th>
+                                <th class="p-4 border">Samay</th>
+                                <th class="p-4 border">Status</th>
+                            </tr>
+                        </thead>
                         <tbody id="liveList">
-                            <tr id="noBooking"><td class="p-8 text-center text-gray-400 italic" colspan="3">Abhi seat khali hai!</td></tr>
+                            <tr id="noBooking"><td class="p-10 text-center text-gray-400 font-bold italic" colspan="3 uppercase">Abhi koi waiting nahi hai.</td></tr>
                         </tbody>
                     </table>
                 </div>
             </div>
 
-            <div class="bg-amber-50 p-6 rounded-3xl shadow-xl border-2 border-amber-200">
-                <h3 class="text-2xl font-black text-center mb-6 text-slate-900 uppercase italic">Appointment Lein</h3>
-                <div class="space-y-4">
-                    <input type="text" id="custName" placeholder="Apna Naam" class="w-full p-4 border rounded-xl outline-none focus:ring-2 focus:ring-amber-500 shadow-inner">
-                    <div class="grid grid-cols-2 gap-2">
-                        <input type="date" id="custDate" class="w-full p-4 border rounded-xl outline-none">
-                        <input type="time" id="custTime" class="w-full p-4 border rounded-xl outline-none">
+            <div class="bg-amber-50 p-8 rounded-3xl shadow-2xl border-4 border-amber-200">
+                <h2 class="text-3xl font-black text-center mb-8 text-black uppercase italic">APPOINTMENT LEIN</h2>
+                <div class="space-y-6">
+                    <div>
+                        <label class="block text-[10px] font-black uppercase mb-1">Aapka Naam:</label>
+                        <input type="text" id="custName" placeholder="Naam likhein" class="w-full p-4 border-2 border-amber-200 rounded-xl outline-none focus:border-amber-500 shadow-inner">
                     </div>
-                    <button onclick="bookMySeat()" class="w-full bg-green-600 text-white font-black py-4 rounded-xl shadow-lg hover:bg-green-700 flex items-center justify-center gap-2 uppercase">
+                    <div class="grid grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-[10px] font-black uppercase mb-1">Date:</label>
+                            <input type="date" id="custDate" class="w-full p-4 border-2 border-amber-200 rounded-xl outline-none">
+                        </div>
+                        <div>
+                            <label class="block text-[10px] font-black uppercase mb-1">Time:</label>
+                            <input type="time" id="custTime" class="w-full p-4 border-2 border-amber-200 rounded-xl outline-none">
+                        </div>
+                    </div>
+                    <button onclick="confirmBooking()" class="w-full bg-green-600 text-white font-black py-5 rounded-2xl shadow-xl hover:bg-green-700 transition transform active:scale-95 flex items-center justify-center gap-3 text-xl uppercase">
                         <i class="fab fa-whatsapp text-2xl"></i> WhatsApp Booking
                     </button>
                 </div>
             </div>
+
         </div>
     </main>
 
-    <footer class="bg-black text-white p-10 mt-10 text-center border-t-4 border-amber-600">
-        <p class="text-amber-500 font-bold uppercase italic">Suhani Hair Salon</p>
-        <p class="text-[10px] text-gray-500 mt-2">Shop 01, Kolar Road, Bhopal | Call: +91 99778-51389</p>
+    <footer class="bg-black text-white p-12 mt-20 text-center border-t-8 border-amber-600">
+        <p class="text-2xl font-black text-amber-500 italic uppercase">Suhani Hair Salon</p>
+        <p class="text-xs text-gray-500 mt-2 uppercase font-bold tracking-widest">Shop 01, Kolar Road, Bhopal | Call: +91 99778-51389</p>
+        <p class="text-[10px] text-red-500 font-black mt-4 uppercase">Tuesday Closed</p>
     </footer>
 
     <script>
-        function bookMySeat() {
-            var name = document.getElementById('custName').value;
-            var date = document.getElementById('custDate').value;
-            var time = document.getElementById('custTime').value;
-            var phone = "919977851389";
+        function confirmBooking() {
+            var n = document.getElementById('custName').value;
+            var d = document.getElementById('custDate').value;
+            var t = document.getElementById('custTime').value;
+            var p = "919977851389";
 
-            if(!name || !date || !time) {
-                alert("Kripya saari jankari bharein!");
-                return;
-            }
+            if(!n || !d || !t) { alert("Puri jankari bharein!"); return; }
 
-            // List mein naam jodein
+            // Add to list
             var list = document.getElementById('liveList');
             var empty = document.getElementById('noBooking');
             if(empty) empty.remove();
 
-            var rowId = "row-" + Date.now();
-            var newRow = document.createElement("tr");
-            newRow.id = rowId;
-            newRow.className = "border-b font-bold text-slate-800";
-            newRow.innerHTML = `<td class="p-3 text-xs uppercase">${name}</td><td class="p-3 text-blue-600">${time}</td><td class="p-3"><span class="bg-green-100 text-green-700 px-2 py-1 rounded text-[10px] booking-active">SERVICE...</span></td>`;
-            list.appendChild(newRow);
+            var id = "row-" + Date.now();
+            var row = document.createElement("tr");
+            row.id = id;
+            row.className = "border-b font-black text-black text-xs uppercase italic";
+            row.innerHTML = `<td class="p-4 border text-slate-700">${n}</td><td class="p-4 border text-blue-600">${t}</td><td class="p-4 border"><span class="bg-green-100 text-green-700 px-2 py-1 rounded-full text-[8px] booking-active tracking-tighter">SERVICE...</span></td>`;
+            list.appendChild(row);
 
-            // 20 Minute Timer (1200000ms)
+            // Auto Remove (20 Mins)
             setTimeout(function() {
-                var el = document.getElementById(rowId);
-                if(el) {
-                    el.classList.add('fade-out');
-                    setTimeout(function() { el.remove(); }, 1500);
-                }
+                var el = document.getElementById(id);
+                if(el) { el.classList.add('fade-out'); setTimeout(function(){ el.remove(); }, 1500); }
             }, 1200000);
 
-            // WhatsApp link
-            var msg = "*New Appointment*%0A*Naam:* " + name + "%0A*Time:* " + time + "%0A*Date:* " + date;
-            window.open("https://wa.me/" + phone + "?text=" + msg, '_blank');
+            // WhatsApp
+            var msg = "*New Appointment*%0A*Naam:* " + n + "%0A*Date:* " + d + "%0A*Time:* " + t;
+            window.open("https://wa.me/" + p + "?text=" + msg, '_blank');
         }
     </script>
 </body>
